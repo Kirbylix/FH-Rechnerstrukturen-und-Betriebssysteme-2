@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/pa/!svn/ver/22/eJVM%20Development%20Kit/src/org/ejvm/execution
+END
+EjvmProcess.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/pa/!svn/ver/5/eJVM%20Development%20Kit/src/org/ejvm/execution/EjvmProcess.java
+END
+EjvmProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/pa/!svn/ver/1/eJVM%20Development%20Kit/src/org/ejvm/execution/EjvmProcessor.java
+END
+NotExecutableException.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/pa/!svn/ver/1/eJVM%20Development%20Kit/src/org/ejvm/execution/NotExecutableException.java
+END
+EjvmInstruction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/pa/!svn/ver/22/eJVM%20Development%20Kit/src/org/ejvm/execution/EjvmInstruction.java
+END
+EjvmExecutionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/pa/!svn/ver/15/eJVM%20Development%20Kit/src/org/ejvm/execution/EjvmExecutionException.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/pa/!svn/ver/1/eJVM%20Development%20Kit/src/org/ejvm/execution/package-info.java
+END
+EjvmMachine.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/pa/!svn/ver/15/eJVM%20Development%20Kit/src/org/ejvm/execution/EjvmMachine.java
+END
+EjvmExecutionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/pa/!svn/ver/1/eJVM%20Development%20Kit/src/org/ejvm/execution/EjvmExecutionListener.java
+END

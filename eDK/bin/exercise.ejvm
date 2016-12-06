@@ -1,0 +1,31 @@
+﻿.program Exercise
+.constants
+LINEBREAK    0x0A  ; Line feed character (LF)
+.end-constants
+.method main()
+BIPUSH 3      ; Push x
+BIPUSH 2       ; Push y
+INVOKEVIRTUAL func
+SETOUT NUMBER    ; Set output to numbers
+OUT
+SETOUT CHAR    ; Return output to characters
+LDC LINEBREAK    ; Put LF on stack
+OUT        ; Print line break
+RETURN      ; End program by returning
+.end-method
+.method func(x, y)
+ILOAD x
+ILOAD y
+ISUB
+DUP
+IFLT retxy
+DUP
+IFEQ ret0
+IRETURN
+retxy:  ILOAD y
+ILOAD x 
+ISUB
+IRETURN
+ret0:  BIPUSH 0
+IRETURN 
+.end-method

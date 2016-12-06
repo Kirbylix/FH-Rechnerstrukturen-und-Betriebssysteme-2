@@ -1,0 +1,55 @@
+.program Fibonacci
+
+.constants
+	NO_OF_NUMBERS	0x10
+	LINEBREAK		10
+.end-constants
+
+.method main()
+	.vars
+		f_n	; Contains f_(n-1)th value.
+		f_m ; Contains f_(n-2)th value.
+		cnt	; Number of numbers put out.
+	.end-vars
+		; Initialize local variables.
+		BIPUSH 1
+		ISTORE f_n
+		BIPUSH 1
+		ISTORE f_m
+		BIPUSH 2
+		ISTORE cnt			; Init cnt with 2 for the first two numbers (1).
+		BIPUSH 49			; Put 1 as character onto the stack.
+		DUP
+		INVOKEVIRTUAL print
+		INVOKEVIRTUAL print
+next:	ILOAD f_m
+		ILOAD f_n
+		IADD				; Calculate next Fibonacci number.
+		DUP					; Duplicate so that we still have a value we can store in a variable.
+		BIPUSH 48			; Add 48 to convert it to the character for this number.
+		INVOKEVIRTUAL print	; Print next number.
+		ILOAD f_n
+		ISTORE f_m			; Replace f_(n-2)th Fibonacci number with f_(n-1)th.
+		ISTORE f_n
+		IINC cnt 1			; Increase the counter by 1.
+		ILOAD cnt
+		LDC NO_OF_NUMBERS
+		IF_ICMPEQ end
+		GOTO next
+end:	RETURN
+
+.end-method
+
+; Prints the argument and appends a line break.
+.method print(no)
+		ILOAD no
+red:	BIPUSH 10
+		ISUB
+		DUP
+		IFLT out
+		GOTO red
+out:	BIPUSH 58
+		IADD
+		OUT
+		RETURN
+.end-method

@@ -1,0 +1,57 @@
+.program Fibonacci
+
+.constants
+	NO_OF_NUMBERS	16
+	LINEBREAK		0x0A
+.end-constants
+
+.method main()
+	.vars
+		f_n		; f_(n-1)
+		f_m		; f_(n-2)
+		cnt
+		j
+	.end-vars
+	
+		BIPUSH 1				; Legt 1 auf Stack
+		ISTORE f_n				; f_n -> 1
+		BIPUSH 1				; Legt 1 auf Stack
+		ISTORE f_m				; f_m -> 1
+		BIPUSH 2				; legt 2 auf Stack
+		ISTORE cnt				; cnt -> 2
+		BIPUSH 1				; Legt 1 auf Stack
+		DUP						; Dupliziert den obersten Wert (1) auf dem Stack
+		INVOKEVIRTUAL printNo
+		INVOKEVIRTUAL printNo
+	next: 	LDC NO_OF_NUMBERS	; Lege NO_OF_NUMBERS auf Stack
+			IINC cnt 1			; cnt ++
+			ILOAD cnt			; Lege cnt auf STACK
+			ISUB				; NO_OF_NUMBER - cnt
+			IFLT end			; if((NO_OF_NUMBER-cnt)<0) -> end
+			
+			ILOAD f_n			; legt f_n auf Stack
+			ILOAD f_m			; legt f_m auf Stack
+			IADD				; f_n + f_m
+			ISTORE j			; -> j
+
+			ILOAD j					; legt j auf Stack
+			INVOKEVIRTUAL printNo	; Fibonacci-Zahl ausgeben
+			
+			ILOAD f_m			; legt f_m auf Stack
+			ISTORE f_n			; -> f_n
+			ILOAD j				; legt j auf Stack
+			ISTORE f_m			; -> f_m
+			
+			GOTO next			; -> next
+	end: 	RETURN				; FINISH
+.end-method
+
+.method printNo(no)
+	SETOUT NUMBER
+	ILOAD no
+	OUT
+	SETOUT CHAR
+	LDC LINEBREAK
+	OUT
+	RETURN
+.end-method

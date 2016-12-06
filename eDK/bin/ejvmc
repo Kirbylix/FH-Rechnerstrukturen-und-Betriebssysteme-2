@@ -1,0 +1,2 @@
+#!/bin/sh
+java -cp ./edk.jar:../lib/antlr-4.0-complete.jar:../lib/args4j-2.32.jar org.ejvm.frontend.EjvmCompile $*

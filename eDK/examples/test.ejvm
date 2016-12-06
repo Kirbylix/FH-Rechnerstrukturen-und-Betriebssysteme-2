@@ -1,0 +1,69 @@
+; A test program.
+.program Test Program
+
+.constants
+	C0 0x00
+	C1 255
+	C2 -1
+	C3 42
+.end-constants
+
+.errors
+	E_DIV_BY_ZERO	"Division by Zero!"
+	E_CAKE			"The cake is a lie!"
+.end-errors
+
+.method main()
+	.vars
+		v0
+	.end-vars
+		BIPUSH 21
+		DUP
+		IADD
+		ISTORE v0
+		ILOAD v0
+		OUT
+		INVOKEVIRTUAL io
+		OUT
+		BIPUSH 64 ; Change back to hex once it works.
+		INVOKEVIRTUAL jumps
+		OUT
+		INVOKEVIRTUAL error_and_comparison_and_subtraction
+		RETURN
+.end-method
+
+.method io()
+		IN
+		OUT
+		LDC C3
+		IRETURN
+.end-method
+
+.method jumps(p0)
+		GOTO foo
+end:	ILOAD p0
+		IRETURN
+foo:	BIPUSH 94
+		GOTO end
+.end-method
+
+.method error_and_comparison_and_subtraction()
+		.vars
+			input
+		.end-vars
+read:	IN
+		ISTORE input
+		ILOAD input
+		BIPUSH 10
+		IF_ICMPEQ read
+		ILOAD input
+		BIPUSH 13
+		IF_ICMPEQ read
+		ILOAD input
+		BIPUSH 69
+		ISUB
+		IFEQ err
+		RETURN
+err:	ERR E_CAKE
+.end-method
+

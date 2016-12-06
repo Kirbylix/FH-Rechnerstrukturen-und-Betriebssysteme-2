@@ -1,0 +1,32 @@
+.program Exercise
+.constants
+	LINEBREAK 0x0A ; Line feed character (LF)
+.end-constants
+.method main()
+	BIPUSH 3
+	BIPUSH 2
+	INVOKEVIRTUAL func
+	SETOUT NUMBER
+	OUT
+	SETOUT CHAR
+	LDC LINEBREAK
+	OUT
+	RETURN
+.end-method
+
+.method func(x, y)
+	ILOAD x
+	ILOAD y
+	ISUB
+	DUP
+	IFLT retxy
+	DUP
+	IFEQ ret0
+	IRETURN
+retxy:	ILOAD y
+	ILOAD x
+	ISUB
+	IRETURN
+ret0:	BIPUSH 0
+	IRETURN
+.end-method
